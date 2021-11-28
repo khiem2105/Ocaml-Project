@@ -39,3 +39,26 @@ let construct_list_polynomes (taille_lst : int) (taille_polynome : int) : Polyno
 let l = construct_list_polynomes 100 20
 in let p = List.fold_left (fun acc pol -> Polynomes.poly_prod acc pol) [{coeff = 1; degre = 0}] l
 in Polynomes.print_polynome p
+
+let a = Grammaire_arbre.Mul_Or_Plus_Node{
+    op = Mul;
+    sous_arbres = [
+        Mul_Or_Plus_Node{
+            op = Mul;
+            sous_arbres = [
+                Int_Node{label = 123};
+                Pow_Node{
+                    op = Pow;
+                    var = "x";
+                    degre = 1
+                }
+            ]
+        };
+        Int_Node{label = 42};
+        Pow_Node{
+            op = Pow;
+            var = "x";
+            degre = 3
+        }
+    ]
+}

@@ -18,7 +18,7 @@ def read_data(path = "data2.txt"):
 
 # print(read_data()[1])
 
-def plot_data(x, y, name, nb = True):
+def plot_data(x, y, name, saved_name, nb = True):
     plt.figure()
     plt.title(name)
     plt.ylabel("Time execution")
@@ -27,20 +27,20 @@ def plot_data(x, y, name, nb = True):
     else:
         plt.xlabel("Length of polynome")
     plt.plot(x, y)
-    plt.savefig(os.path.join(figure_path, name + ".png"))
+    plt.savefig(os.path.join(figure_path, saved_name + ".png"))
 
 def main():
     data_files = ["data" + str(i+1) + ".txt" for i in range(12)]
     for i, data_file in enumerate(data_files):
         x, y = read_data(data_file)
         if i < 3:
-            plot_data(x, y, "Test on changing number of polynome. Strategie " + str(i % 3 + 1) + " for adding")
+            plot_data(x, y, "Test on changing number of polynome. Strategie " + str(i % 3 + 1) + " for adding", str(i))
         elif i < 6:
-            plot_data(x, y, "Test on changing number of polynome. Strategie " + str(i % 3 + 1) + " for multiplying")
+            plot_data(x, y, "Test on changing number of polynome. Strategie " + str(i % 3 + 1) + " for multiplying", str(i))
         elif i < 9:
-            plot_data(x, y, "Test on changing length of polynome. Strategie " + str(i % 3 + 1) + " for adding", nb=False)
+            plot_data(x, y, "Test on changing length of polynome. Strategie " + str(i % 3 + 1) + " for adding", str(i), nb=False)
         else:
-            plot_data(x, y, "Test on changing length of polynome. Strategie " + str(i % 3 + 1) + " for multiplying", nb=False)
+            plot_data(x, y, "Test on changing length of polynome. Strategie " + str(i % 3 + 1) + " for multiplying", str(i), nb=False)
 
 
 if __name__ == "__main__":
