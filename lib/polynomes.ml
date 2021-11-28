@@ -22,7 +22,7 @@ let print_coeff (tete : bool) (c : int) = match tete, c with
 
 (*Afficher le monôme*)
 let print_monome (m : monome) (tete : bool) = match m with
- | {degre=0} -> print_coeff  tete m.coeff
+ | {coeff = _; degre=0} -> print_coeff  tete m.coeff
  | _ -> print_coeff tete m.coeff; print_pow m.degre;;
 
 (*Afficher un polynôme*) 
@@ -61,7 +61,7 @@ let rec canonique (p:polynome) = match p with
 let rec poly_add (p1 : polynome) (p2 : polynome) : polynome = match p1, p2 with
 	|p1,[]-> p1
 	|[],p2 -> p2
-	|({degre=d1} as h1)::t1, ({degre=d2} as h2)::t2 ->
+	|({coeff = _; degre=d1} as h1)::t1, ({coeff = _; degre=d2} as h2)::t2 ->
 		if d1 < d2 
 			then h1::poly_add t1 p2
 		else if d2 < d1

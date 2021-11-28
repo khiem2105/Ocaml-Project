@@ -1,7 +1,12 @@
-open Polynomes;;
+(* open Polynomes;;
 open Utils;;
 open Grammaire_arbre;;
+open Abr;; *)
+open Lib;;
+open Polynomes;;
+open Utils;;
 open Abr;;
+open Grammaire_arbre;;
 
 
 let lst_1 = Utils.gen_permutation (2*2*2*2*2*2*2*2*2*2*2*2*2) and lst_2 = Utils.gen_permutation (2*2*2*2*2*2*2*2*2*2*2*2*2) in 

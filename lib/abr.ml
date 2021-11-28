@@ -1,4 +1,3 @@
-open Random;;
 open Random_choice;;
 open Grammaire_arbre;;
 
@@ -7,7 +6,6 @@ Random.self_init ();;
 module Abr =
 struct
   exception  NoRule;;
-(**Question 1.10**)
 
 (*Creation du type ABR*)
   type 'a binary_tree =
@@ -56,19 +54,19 @@ struct
         let e = Random.int 100 in
           Node{label = "^"; left = Node{label = "x"; left = Empty; right = Empty}; right = Node{label = string_of_int e; left = Empty; right = Empty}}
 
-    | Node{label = l; left = left_tree; right = Empty} ->
+    | Node{label = _; left = left_tree; right = Empty} ->
       let op = Random_choice.random_choice op_lst (Random.float 1.) in 
         let e = Random.int 400 - 200 in
           let lst = [(string_of_int e, 0.5); ("x", 0.5)] in
             Node{label = op; left = etiquetage left_tree; right = Node{label = Random_choice.random_choice lst (Random.float 1.); left = Empty; right = Empty}}
 
-    | Node{label = l; left = Empty; right = right_tree} ->
+    | Node{label = _; left = Empty; right = right_tree} ->
       let op = Random_choice.random_choice op_lst (Random.float 1.) in 
         let e = Random.int 400 - 200 in
           let lst = [(string_of_int e, 0.5); ("x", 0.5)] in
             Node{label = op; left = Node{label = Random_choice.random_choice lst (Random.float 1.); left = Empty; right = Empty}; right = etiquetage right_tree}
     
-    | Node{label = l; left = left_tree; right = right_tree} ->
+    | Node{label = _; left = left_tree; right = right_tree} ->
       let op = Random_choice.random_choice op_lst (Random.float 1.) in 
         Node{label = op; left = etiquetage left_tree; right = etiquetage right_tree}
 

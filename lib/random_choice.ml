@@ -1,5 +1,3 @@
-open Random;;
-Random.self_init ();;
 module Random_choice = 
 struct
   exception EmptyList;;

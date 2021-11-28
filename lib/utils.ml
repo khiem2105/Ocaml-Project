@@ -1,4 +1,3 @@
-open Random;;
 Random.self_init ();;
 module Utils =
 struct
