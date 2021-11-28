@@ -1,3 +1,4 @@
 .vscode
 _opam
 _build
+*.zip

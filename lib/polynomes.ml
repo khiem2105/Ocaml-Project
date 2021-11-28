@@ -46,8 +46,8 @@ let produit_monomes (ma : monome) (mb : monome) : monome =
 let rec inserer_monome (m:monome) (p:polynome) = match p with 
  | [] -> m::[]
  | t::q ->
-    (*Si le monome a un degré supérieur à celui de l'élément en tête de liste on l'insère en tête*)
- 	if m.degre > t.degre then m::p 
+    (*Si le monome a un degré inférieur à celui de l'élément en tête de liste on l'insère en tête*)
+ 	if m.degre < t.degre then m::p 
  	(*Si le monome a un degré équivalent à celui de l'élément en tête de liste on les additionne et insère le monome resultant en tête*)
  	else if m.degre = t.degre then (addition_monomes m t)::q
  	(*Si non, on appelle la fonction de recursive sur la queue*)
